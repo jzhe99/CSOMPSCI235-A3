@@ -1,0 +1,29 @@
+<nav id="nav">
+  <img id="logo" src="{{ url_for('static', filename='movie.png') }}" />
+
+  <h2 id="nav-header">
+    {% if 'username' in session %} Hello, {{ session['username'] }} {%
+    endif %}
+  </h2>
+  <a class="btn-nav" href="{{ url_for('home_bp.home') }}">Home</a>
+  <a class="btn-nav" href="{{ url_for('authentication_bp.register') }}">Register</a>
+  <a class="btn-nav" href="{{ url_for('authentication_bp.login') }}">Login</a>
+  <a class="btn-nav" href="{{ url_for('authentication_bp.logout') }}">Logout</a>
+
+
+
+  <div class="ppp" style="overflow: scroll;height: 8000px">
+    <h3 class="sub-nav-header">Browse by genre</h3>
+    {% for key in genre_urls %}
+      <a class="btn-nav" href="{{ genre_urls[key] }}">{{ key }}</a>
+    {% endfor %}
+    <h3 class="sub-nav-header">Browse by director</h3>
+    {% for key in director_urls %}
+      <a class="btn-nav" href="{{ director_urls[key] }}">{{ key }}</a>
+    {% endfor %}
+    <h3 class="sub-nav-header">Browse by actor</h3>
+    {% for key in actor_urls %}
+      <a class="btn-nav" href="{{ actor_urls[key] }}">{{ key }}</a>
+    {% endfor %}
+  </div>
+</nav>

@@ -1,0 +1,15 @@
+<aside id="sidebar">
+
+    <header>
+        <h1>Editor's picks</h1>
+    </header>
+
+    {% for movie in selected_movies %}
+        <div id="article-container">
+
+            <div id="article-description">
+                <p>{{ movie.title }}.</p>
+            </div>
+        </div>
+    {% endfor %}
+</aside>
